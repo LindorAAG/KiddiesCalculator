@@ -10,7 +10,7 @@
               android:paddingTop="30dp"
               android:background="#fff" android:weightSum="1">
 
-    <TextView
+    <EditText
             android:id="@+id/txtScreen"
             android:text="@string/display"
             android:layout_width="match_parent"
@@ -23,7 +23,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="50sp"
             android:paddingTop="30dp"
-            android:typeface="serif" android:layout_weight="0.17"/>
+            android:typeface="serif"
+            android:layout_weight="0.17"/>
 
        <LinearLayout android:orientation="horizontal"
                   android:layout_width="fill_parent"
@@ -146,7 +147,7 @@
                 android:layout_height="80dp"
                 android:id = "@+id/add"
                 android:background="@drawable/button"
-                android:text="@string/addition" />
+                android:text="@string/add" />
     </LinearLayout>
 </LinearLayout>
 
