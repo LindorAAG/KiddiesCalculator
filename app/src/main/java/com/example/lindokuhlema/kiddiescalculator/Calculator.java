@@ -5,14 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by LindokuhleMa on 2017/02/09.
  */
 public class Calculator extends AppCompatActivity implements View.OnClickListener{
     Button one, two, three, four, five, six, seven, eight, nine, zero, add, sub, mul, div, cancel, equal;
-    EditText disp;
+    TextView disp;
     int firstNum, secondNum;
     String optr;
 
@@ -38,7 +38,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         cancel = (Button) findViewById(R.id.cancel);
         equal = (Button) findViewById(R.id.equal);
 
-        disp = (EditText) findViewById(R.id.display);
+        disp = (TextView) findViewById(R.id.display);
 
         try{
             one.setOnClickListener(this);
@@ -85,77 +85,77 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         } }
 
     @Override public void onClick(View arg0) {
-        Editable str = disp.getText();
+
         switch(arg0.getId()){
             case R.id.one: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(one.getText());
-                disp.setText(str);
+            disp.append(one.getText());
+                disp.setText(one.getText());
                 break;
             case R.id.two: if(secondNum != 0)
             { secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(two.getText());
-                disp.setText(str);
+                disp.append(two.getText());
+                disp.setText(two.getText());
                 break;
             case R.id.three: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(three.getText());
-                disp.setText(str);
+            disp.append(three.getText());
+                disp.setText(three.getText());
                 break;
             case R.id.four: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(four.getText());
-                disp.setText(str);
+            disp.append(four.getText());
+                disp.setText(four.getText());
                 break;
             case R.id.five: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(five.getText());
-                disp.setText(str);
+            disp.append(five.getText());
+                disp.setText(five.getText());
                 break;
             case R.id.six: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(six.getText());
-                disp.setText(str);
+           disp.append(six.getText());
+                disp.setText(six.getText());
                 break;
             case R.id.seven: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(seven.getText());
-                disp.setText(str);
+           disp.append(seven.getText());
+                disp.setText(seven.getText());
                 break;
             case R.id.eight: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(eight.getText());
-                disp.setText(str);
+                disp.append(eight.getText());
+                disp.setText(eight.getText());
                 break;
             case R.id.nine: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-                str = str.append(nine.getText());
-                disp.setText(str);
+                disp.append(nine.getText());
+                disp.setText(nine.getText());
                 break;
             case R.id.zero: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(zero.getText());
-                disp.setText(str);
+            disp.append(zero.getText());
+                disp.setText(zero.getText());
                 break;
             case R.id.cancel: firstNum = 0;
                 secondNum = 0;
@@ -206,9 +206,8 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 if(firstNum == 0){
                     firstNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
-                } else if(secondNum != 0){
-                    secondNum = 0;
-                    disp.setText("");
+                } else if(secondNum == 0){
+                    throw new IllegalArgumentException("Error: Cannot divide by 0!");
                 } else{
                     secondNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
@@ -219,16 +218,16 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
             case R.id.equal: if(!optr.equals(null)){
                 if(secondNum != 0){
                     if(optr.equals("+")){
-                        disp.setText("");  /*op1 = op1 + op2;*/
+                        disp.setText("");
                         disp.setText("Result : " + Integer.toString(firstNum));
                     } else if(optr.equals("-")){
-                        disp.setText("");/* op1 = op1 - op2;*/
+                        disp.setText("");
                         disp.setText("Result : " + Integer.toString(firstNum));
                     } else if(optr.equals("*")){
-                        disp.setText("");/* op1 = op1 * op2;*/
+                        disp.setText("");
                         disp.setText("Result : " + Integer.toString(firstNum));
                     } else if(optr.equals("/")){
-                        disp.setText("");/* op1 = op1 / op2;*/
+                        disp.setText("");
                         disp.setText("Result : " + Integer.toString(firstNum));
                     }
                 } else{

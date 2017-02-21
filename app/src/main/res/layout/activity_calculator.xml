@@ -8,18 +8,26 @@
               android:paddingRight="@dimen/activity_horizontal_margin"
               tools:context=".Calculator"
               android:paddingTop="70dp"
-              android:background="#ffd9d9d9" android:weightSum="1">
+              android:background="#ffd9d9d9"
+              android:weightSum="1">
 
-    <EditText android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/display"
-              android:id = "@+id/display"  />
+    <TextView
+            android:id="@+id/display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="right|center_vertical"
+            android:maxLength="16"
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:typeface="serif" />
 
-    Read more: http://mrbool.com/how-to-create-a-calculator-app-for-android/28100#ixzz4ZEWdqwhO
-
-       <LinearLayout android:orientation="horizontal"
+    <LinearLayout android:orientation="horizontal"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
+                  android:layout_gravity="center"
                   android:gravity="center">
 
         <Button android:layout_width="wrap_content"

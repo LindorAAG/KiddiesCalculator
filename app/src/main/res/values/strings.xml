@@ -12,7 +12,7 @@
     <string name="nine">9</string>
     <string name="equal">=</string>
     <string name="cancel">C</string>
-    <string name="display">******</string>
+    <string name="display"></string>
     <string name="add">+</string>
     <string name="multiply">*</string>
     <string name="divide">/</string>

@@ -29,7 +29,7 @@ public class AdditionFactoryTest {
         Addition newSum = new Addition.Builder().copy(addition).num1(4).build();
         Assert.assertEquals(4, newSum.getNum1());
         newSum.add();
-        System.out.print("The sum of " + newSum.getNum1() + " and " + newSum.getNum2() + " is " + newSum.getSum());
+        System.out.print("The sum of " + newSum.getNum1() + " and " + newSum.getNum2() + " is " + newSum.getSum() + "\n");
     }
 }
 
