@@ -6,7 +6,6 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 /**
  * Created by LindokuhleMa on 2017/02/09.
@@ -39,7 +38,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         cancel = (Button) findViewById(R.id.cancel);
         equal = (Button) findViewById(R.id.equal);
 
-        disp = (EditText) findViewById(R.id.txtScreen);
+        disp = (EditText) findViewById(R.id.display);
 
         try{
             one.setOnClickListener(this);
@@ -59,12 +58,12 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
             div.setOnClickListener(this);
             equal.setOnClickListener(this);
         } catch(Exception e){
-
+            System.out.print("Error!");
         }
     }
     public void operation(){
         if(optr.equals("+")){
-            firstNum = Integer.parseInt(disp.getText().toString());
+            secondNum = Integer.parseInt(disp.getText().toString());
             disp.setText("");
             firstNum = firstNum + secondNum;
             disp.setText("" + Integer.toString(firstNum));
@@ -92,7 +91,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(two.getText());
+            str = str.append(one.getText());
                 disp.setText(str);
                 break;
             case R.id.two: if(secondNum != 0)
@@ -134,25 +133,33 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(eight.getText());
+            str = str.append(seven.getText());
                 disp.setText(str);
                 break;
             case R.id.eight: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(nine.getText());
+            str = str.append(eight.getText());
                 disp.setText(str);
                 break;
             case R.id.nine: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            str = str.append(zero.getText());
+                str = str.append(nine.getText());
                 disp.setText(str);
+                break;
+            case R.id.zero: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
-                disp.setHint("");
+            }
+            str = str.append(zero.getText());
+                disp.setText(str);
+                break;
+            case R.id.cancel: firstNum = 0;
+                secondNum = 0;
+                disp.setText("");
                 break;
             case R.id.add: optr = "+";
                 if(firstNum == 0){
@@ -164,7 +171,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 } else{ secondNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
                     firstNum = firstNum + secondNum;
-                    disp.setText("Result : " + Integer.toString(firstNum));
+                    disp.setText("" + Integer.toString(firstNum));
                 }
                 break;
             case R.id.sub: optr = "-";
@@ -177,7 +184,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 } else{ secondNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
                     firstNum = firstNum - secondNum;
-                    disp.setText("Result : " + Integer.toString(firstNum));
+                    disp.setText("" + Integer.toString(firstNum));
                 }
                 break;
             case R.id.mul: optr = "*";
@@ -185,13 +192,14 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                     firstNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
                 } else if(secondNum != 0){
-                    secondNum = 0; disp.setText("");
+                    secondNum = 0;
+                    disp.setText("");
                 }
                 else{
                     secondNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
                     firstNum = firstNum * secondNum;
-                    disp.setText("Result : " + Integer.toString(firstNum));
+                    disp.setText("" + Integer.toString(firstNum));
                 }
                 break;
             case R.id.div: optr = "/";
@@ -199,12 +207,13 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                     firstNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
                 } else if(secondNum != 0){
-                    secondNum = 0; disp.setText("");
+                    secondNum = 0;
+                    disp.setText("");
                 } else{
                     secondNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
                     firstNum = firstNum / secondNum;
-                    disp.setText("Result : " + Integer.toString(firstNum));
+                    disp.setText("" + Integer.toString(firstNum));
                 }
                 break;
             case R.id.equal: if(!optr.equals(null)){
