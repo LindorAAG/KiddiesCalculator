@@ -2,7 +2,6 @@ package com.example.lindokuhlema.kiddiescalculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,8 +57,9 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
             div.setOnClickListener(this);
             equal.setOnClickListener(this);
         } catch(Exception e){
-            System.out.print("Error!");
+
         }
+
     }
     public void operation(){
         if(optr.equals("+")){
@@ -84,90 +84,101 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
             disp.setText("" + Integer.toString(firstNum));
         } }
 
-    @Override public void onClick(View arg0) {
-
-        switch(arg0.getId()){
+    @Override public void onClick(View view) {
+        String s = disp.getText().toString();
+        switch(view.getId()){
             case R.id.one: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            disp.append(one.getText());
-                disp.setText(one.getText());
+             //disp.append(one.getText());
+                s += one.getText();
+                disp.setText(s);
                 break;
             case R.id.two: if(secondNum != 0)
             { secondNum = 0;
                 disp.setText("");
             }
-                disp.append(two.getText());
-                disp.setText(two.getText());
+                s += two.getText();
+                //disp.append(two.getText());
+                disp.setText(s);
                 break;
             case R.id.three: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            disp.append(three.getText());
-                disp.setText(three.getText());
+            //s = disp.append(three.getText().toString());
+                s += three.getText();
+                disp.setText(s);
                 break;
             case R.id.four: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            disp.append(four.getText());
-                disp.setText(four.getText());
+                s += four.getText();
+            //disp.append(four.getText());
+                disp.setText(s);
                 break;
             case R.id.five: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-            disp.append(five.getText());
-                disp.setText(five.getText());
+                s += five.getText();
+            //disp.append(five.getText());
+                disp.setText(s);
                 break;
             case R.id.six: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-           disp.append(six.getText());
-                disp.setText(six.getText());
+                s += six.getText();
+           //disp.append(six.getText());
+                disp.setText(s);
                 break;
             case R.id.seven: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-           disp.append(seven.getText());
-                disp.setText(seven.getText());
+                s += seven.getText();
+           //disp.append(seven.getText());
+                disp.setText(s);
                 break;
             case R.id.eight: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-                disp.append(eight.getText());
-                disp.setText(eight.getText());
+                s += eight.getText();
+                //disp.append(eight.getText());
+                disp.setText(s);
                 break;
             case R.id.nine: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
-                disp.append(nine.getText());
-                disp.setText(nine.getText());
+                s += nine.getText();
+                //disp.append(nine.getText());
+                disp.setText(s);
                 break;
             case R.id.zero: if(secondNum != 0){
                 secondNum = 0;
                 disp.setText("");
             }
             disp.append(zero.getText());
-                disp.setText(zero.getText());
+                disp.setText(s);
                 break;
-            case R.id.cancel: firstNum = 0;
+            case R.id.cancel:
+                firstNum = 0;
                 secondNum = 0;
                 disp.setText("");
                 break;
             case R.id.add: optr = "+";
                 if(firstNum == 0){
                     firstNum = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
+                    s += " + ";
+                    disp.setText(s);
                 } else if(secondNum != 0){
                     secondNum = 0;
-                    disp.setText("");
+                    disp.setText(s);
                 } else{ secondNum = Integer.parseInt(disp.getText().toString());
                     disp.setText("");
                     firstNum = firstNum + secondNum;
@@ -218,17 +229,13 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
             case R.id.equal: if(!optr.equals(null)){
                 if(secondNum != 0){
                     if(optr.equals("+")){
-                        disp.setText("");
-                        disp.setText("Result : " + Integer.toString(firstNum));
+                        disp.setText("" + Integer.toString(firstNum));
                     } else if(optr.equals("-")){
-                        disp.setText("");
-                        disp.setText("Result : " + Integer.toString(firstNum));
+                        disp.setText("" + Integer.toString(firstNum));
                     } else if(optr.equals("*")){
-                        disp.setText("");
-                        disp.setText("Result : " + Integer.toString(firstNum));
+                        disp.setText("" + Integer.toString(firstNum));
                     } else if(optr.equals("/")){
-                        disp.setText("");
-                        disp.setText("Result : " + Integer.toString(firstNum));
+                        disp.setText("" + Integer.toString(firstNum));
                     }
                 } else{
                     operation();
