@@ -17,5 +17,5 @@
     <string name="multiply">*</string>
     <string name="divide">/</string>
     <string name="subtract">-</string>
-    <string name="divideByZero">-</string>
+    <string name="divideByZero">Error: Wrong format!</string>
 </resources>
