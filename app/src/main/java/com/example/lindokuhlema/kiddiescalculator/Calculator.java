@@ -11,9 +11,14 @@ import android.widget.TextView;
  */
 public class Calculator extends AppCompatActivity implements View.OnClickListener{
     Button one, two, three, four, five, six, seven, eight, nine, zero, add, sub, mul, div, cancel, equal;
-    TextView disp;
-    int firstNum, secondNum;
-    String optr;
+    TextView display;
+    private int valueOne = 0, valueTwo = 0, answer = 0;
+    private static final char ADDITION ='+';
+    private static final char SUBTRACTION ='-';
+    private static final char MULTIPLICATION ='*';
+    private static final char DIVISION ='/';
+    private char currentAction;
+    private String displayExpression;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,211 +41,144 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         div = (Button) findViewById(R.id.div);
         cancel = (Button) findViewById(R.id.cancel);
         equal = (Button) findViewById(R.id.equal);
+        display = (TextView) findViewById(R.id.display);
 
-        disp = (TextView) findViewById(R.id.display);
+        one.setOnClickListener(this);
+        two.setOnClickListener(this);
+        three.setOnClickListener(this);
+        four.setOnClickListener(this);
+        five.setOnClickListener(this);
+        six.setOnClickListener(this);
+        seven.setOnClickListener(this);
+        eight.setOnClickListener(this);
+        nine.setOnClickListener(this);
+        zero.setOnClickListener(this);
+        cancel.setOnClickListener(this);
+        add.setOnClickListener(this);
+        sub.setOnClickListener(this);
+        mul.setOnClickListener(this);
+        div.setOnClickListener(this);
+        equal.setOnClickListener(this);
 
-        try{
-            one.setOnClickListener(this);
-            two.setOnClickListener(this);
-            three.setOnClickListener(this);
-            four.setOnClickListener(this);
-            five.setOnClickListener(this);
-            six.setOnClickListener(this);
-            seven.setOnClickListener(this);
-            eight.setOnClickListener(this);
-            nine.setOnClickListener(this);
-            zero.setOnClickListener(this);
-            cancel.setOnClickListener(this);
-            add.setOnClickListener(this);
-            sub.setOnClickListener(this);
-            mul.setOnClickListener(this);
-            div.setOnClickListener(this);
-            equal.setOnClickListener(this);
-        } catch(Exception e){
-
-        }
-
+        displayExpression="";
     }
-    public void operation(){
-        if(optr.equals("+")){
-            secondNum = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            firstNum = firstNum + secondNum;
-            disp.setText("" + Integer.toString(firstNum));
-        } else if(optr.equals("-")){
-            secondNum = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            firstNum = firstNum - secondNum;
-            disp.setText("" + Integer.toString(firstNum));
-        } else if(optr.equals("*")){
-            secondNum = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            firstNum = firstNum * secondNum;
-            disp.setText("" + Integer.toString(firstNum));
-        } else if(optr.equals("/")){
-            secondNum = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            firstNum = firstNum / secondNum;
-            disp.setText("" + Integer.toString(firstNum));
-        } }
 
-    @Override public void onClick(View view) {
-        String s = disp.getText().toString();
-        switch(view.getId()){
-            case R.id.one: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-             //disp.append(one.getText());
-                s += one.getText();
-                disp.setText(s);
+    @Override
+    public void onClick(View view)
+    {
+        String[] explode;
+
+        switch(view.getId())
+        {
+
+            case R.id.zero:
+                displayExpression += zero.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.two: if(secondNum != 0)
-            { secondNum = 0;
-                disp.setText("");
-            }
-                s += two.getText();
-                //disp.append(two.getText());
-                disp.setText(s);
+            case R.id.one:
+                displayExpression += one.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.three: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-            //s = disp.append(three.getText().toString());
-                s += three.getText();
-                disp.setText(s);
+            case R.id.two:
+                displayExpression += two.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.four: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-                s += four.getText();
-            //disp.append(four.getText());
-                disp.setText(s);
+            case R.id.three:
+                displayExpression += three.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.five: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-                s += five.getText();
-            //disp.append(five.getText());
-                disp.setText(s);
+            case R.id.four:
+                displayExpression += four.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.six: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-                s += six.getText();
-           //disp.append(six.getText());
-                disp.setText(s);
+            case R.id.five:
+                displayExpression += five.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.seven: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-                s += seven.getText();
-           //disp.append(seven.getText());
-                disp.setText(s);
+            case R.id.six:
+                displayExpression += six.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.eight: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-                s += eight.getText();
-                //disp.append(eight.getText());
-                disp.setText(s);
+            case R.id.seven:
+                displayExpression += seven.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.nine: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-                s += nine.getText();
-                //disp.append(nine.getText());
-                disp.setText(s);
+            case R.id.eight:
+                displayExpression += eight.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.zero: if(secondNum != 0){
-                secondNum = 0;
-                disp.setText("");
-            }
-            disp.append(zero.getText());
-                disp.setText(s);
+            case R.id.nine:
+                displayExpression += nine.getText();
+                display.setText(displayExpression);
                 break;
-            case R.id.cancel:
-                firstNum = 0;
-                secondNum = 0;
-                disp.setText("");
+            case  R.id.cancel:
+                displayExpression =" ";
+                answer = 0;
+                valueOne = 0;
+                valueTwo = 0;
+                display.setText(displayExpression);
+                displayExpression = "";
                 break;
-            case R.id.add: optr = "+";
-                if(firstNum == 0){
-                    firstNum = Integer.parseInt(disp.getText().toString());
-                    s += " + ";
-                    disp.setText(s);
-                } else if(secondNum != 0){
-                    secondNum = 0;
-                    disp.setText(s);
-                } else{ secondNum = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                    firstNum = firstNum + secondNum;
-                    disp.setText("" + Integer.toString(firstNum));
-                }
+            case R.id.add:
+                currentAction = ADDITION;
+                displayExpression += " + ";
+                display.setText(displayExpression);
                 break;
-            case R.id.sub: optr = "-";
-                if(firstNum == 0){
-                    firstNum = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                } else if(secondNum != 0){
-                    secondNum = 0;
-                    disp.setText("");
-                } else{ secondNum = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                    firstNum = firstNum - secondNum;
-                    disp.setText("" + Integer.toString(firstNum));
-                }
+            case R.id.sub:
+                currentAction = SUBTRACTION;
+                displayExpression += " - ";
+                display.setText(displayExpression);
                 break;
-            case R.id.mul: optr = "*";
-                if(firstNum == 0){
-                    firstNum = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                } else if(secondNum != 0){
-                    secondNum = 0;
-                    disp.setText("");
-                }
-                else{
-                    secondNum = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                    firstNum = firstNum * secondNum;
-                    disp.setText("" + Integer.toString(firstNum));
-                }
+            case R.id.mul:
+                currentAction = MULTIPLICATION;
+                displayExpression += " X ";
+                display.setText(displayExpression);
                 break;
-            case R.id.div: optr = "/";
-                if(firstNum == 0){
-                    firstNum = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                } else if(secondNum == 0){
-                    throw new IllegalArgumentException("Error: Cannot divide by 0!");
-                } else{
-                    secondNum = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                    firstNum = firstNum / secondNum;
-                    disp.setText("" + Integer.toString(firstNum));
-                }
+            case R.id.div:
+                currentAction = DIVISION;
+                displayExpression += " / ";
+                display.setText(displayExpression);
                 break;
-            case R.id.equal: if(!optr.equals(null)){
-                if(secondNum != 0){
-                    if(optr.equals("+")){
-                        disp.setText("" + Integer.toString(firstNum));
-                    } else if(optr.equals("-")){
-                        disp.setText("" + Integer.toString(firstNum));
-                    } else if(optr.equals("*")){
-                        disp.setText("" + Integer.toString(firstNum));
-                    } else if(optr.equals("/")){
-                        disp.setText("" + Integer.toString(firstNum));
+            case R.id.equal:
+                if(currentAction == ADDITION )
+                {
+                    explode = displayExpression.split(" \\+ ");
+                    valueOne = Integer.parseInt(explode[0]);
+                    valueTwo = Integer.parseInt(explode[1]);
+                    answer = (valueOne + valueTwo);
+                    displayExpression ="";
+                    display.setText(Integer.toString(answer));
+                }else if(currentAction == SUBTRACTION)
+                {
+                    explode = displayExpression.split(" - ");
+                    valueOne = Integer.parseInt(explode[0]);
+                    valueTwo = Integer.parseInt(explode[1]);
+                    answer = (valueOne - valueTwo);
+                    displayExpression ="";
+                    display.setText(Integer.toString(answer));
+                }else if(currentAction == MULTIPLICATION)
+                {
+                    explode = displayExpression.split(" X ");
+                    valueOne = Integer.parseInt(explode[0]);
+                    valueTwo = Integer.parseInt(explode[1]);
+                    answer = (valueOne * valueTwo);
+                    displayExpression ="";
+                    display.setText(Integer.toString(answer));
+                }else if(currentAction == DIVISION)
+                {
+                    explode = displayExpression.split(" / ");
+                    valueOne = Integer.parseInt(explode[0]);
+                    valueTwo = Integer.parseInt(explode[1]);
+                    displayExpression ="";
+                    if(valueTwo ==0)
+                    {
+                        display.setText(R.string.divideByZero);
+                    }else{
+                        answer = (valueOne/valueTwo);
+                        display.setText(Integer.toString(answer));
                     }
-                } else{
-                    operation();
                 }
-            } break;
+                break;
         }
     }
 }

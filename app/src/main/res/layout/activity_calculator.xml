@@ -10,7 +10,7 @@
     <TextView
             android:id="@+id/display"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="170dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="right|center_vertical"
@@ -26,25 +26,25 @@
                   android:gravity="center">
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/seven"
                 android:background="@drawable/button"
                 android:text="@string/seven" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/eight"
                 android:background="@drawable/button"
                 android:text="@string/eight" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/nine"
                 android:background="@drawable/button"
                 android:text="@string/nine" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/div"
                 android:background="@drawable/button"
                 android:text="@string/divide" />
@@ -58,25 +58,25 @@
                   android:gravity="center">
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/four"
                 android:background="@drawable/button"
                 android:text="@string/four" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/five"
                 android:background="@drawable/button"
                 android:text="@string/five" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/six"
                 android:background="@drawable/button"
                 android:text="@string/six" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/mul"
                 android:background="@drawable/button"
                 android:text="@string/multiply" />
@@ -89,25 +89,25 @@
                   android:gravity="center">
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/one"
                 android:background="@drawable/button"
                 android:text="@string/one" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/two"
                 android:background="@drawable/button"
                 android:text="@string/two" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/three"
                 android:background="@drawable/button"
                 android:text="@string/three" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/sub"
                 android:background="@drawable/button"
                 android:text="@string/subtract" />
@@ -120,25 +120,25 @@
                   android:gravity="center">
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/cancel"
                 android:background="@drawable/button"
                 android:text="@string/cancel" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/zero"
                 android:background="@drawable/button"
                 android:text="@string/zero" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/equal"
                 android:background="@drawable/button"
                 android:text="@string/equal" />
 
         <Button android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="82dp"
                 android:id = "@+id/add"
                 android:background="@drawable/button"
                 android:text="@string/add" />
