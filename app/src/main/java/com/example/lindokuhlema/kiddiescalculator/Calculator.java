@@ -41,6 +41,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         div = (Button) findViewById(R.id.div);
         cancel = (Button) findViewById(R.id.cancel);
         equal = (Button) findViewById(R.id.equal);
+
         display = (TextView) findViewById(R.id.display);
 
         one.setOnClickListener(this);
